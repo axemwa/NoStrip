@@ -1,0 +1,6 @@
+name: ${project.name}
+version: ${project.version}
+api-version: 1.13
+author: shanodekono
+description: Simple plugin to remove log stripping
+main: me.shanodekono.nostrip.NoStrip
