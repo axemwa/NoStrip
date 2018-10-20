@@ -7,9 +7,5 @@ main: me.shanodekono.nostrip.NoStrip
 commands:
   nostrip:
     description: The main command to use with arguements eg "/ns toggle" "/ns help"
-    aliases: [ns,nos]
-
-
-
-
+    aliases: [ns, nos]
 
