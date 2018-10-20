@@ -42,7 +42,7 @@ public class PlayerInteractListener implements Listener {
             return;
         }
 
-        if (nsCommand.toggle.contains(event.getPlayer().getUniqueId())) {
+        if (!nsCommand.toggle.contains(event.getPlayer().getUniqueId())) {
             return;
         }
 
