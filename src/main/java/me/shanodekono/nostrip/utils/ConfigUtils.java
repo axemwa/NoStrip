@@ -35,7 +35,7 @@ public class ConfigUtils {
         ConfigurationSection messages = config.getConfigurationSection("messages");
 
         prefix = messages.getString("prefix");
-        unknownCommand = messages.getString("unknonw-command");
+        unknownCommand = messages.getString("unknown-command");
         mustBePlayer = messages.getString("must-be-player");
         noPermission = messages.getString("no-permission");
         toggleMessage = messages.getString("toggle-message");
