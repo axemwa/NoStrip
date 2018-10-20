@@ -55,38 +55,38 @@ public class NoStripCommand implements CommandExecutor {
             return true;
         }
 
-        if (!args[0].equalsIgnoreCase("toggle")) {
-            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand
-                    .replace("{command}", command.toString())));
-            return true;
-        }
+        if (args[0].equalsIgnoreCase("toggle")) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.mustBePlayer));
+                return true;
+            }
 
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.mustBePlayer));
-            return true;
-        }
+            Player player = (Player) sender;
 
-        Player player = (Player) sender;
+            if (!player.hasPermission("nostrip.toggle")) {
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission));
+                return true;
+            }
 
-        if (!player.hasPermission("nostrip.toggle")) {
-            player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission));
-            return true;
-        }
+            String status;
 
-        String status;
+            if (!toggle.contains(player.getUniqueId())) {
+                toggle.add(player.getUniqueId());
+                status = "&coff";
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                        .replace("{status}", status)));
+                return true;
+            }
 
-        if (!toggle.contains(player.getUniqueId())) {
-            toggle.add(player.getUniqueId());
-            status = "&coff";
+            toggle.remove(player.getUniqueId());
+            status = "&aon";
             player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                     .replace("{status}", status)));
             return true;
         }
 
-        toggle.remove(player.getUniqueId());
-        status = "&aon";
-        player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                .replace("{status}", status)));
+        sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand
+                .replace("{command}", command.toString())));
         return true;
     }
 

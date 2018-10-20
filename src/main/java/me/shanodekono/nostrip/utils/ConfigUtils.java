@@ -2,6 +2,7 @@ package me.shanodekono.nostrip.utils;
 
 import me.shanodekono.nostrip.NoStrip;
 import org.bukkit.ChatColor;
+
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
