@@ -1,104 +1,93 @@
 package me.shanodekono.nostrip.commands;
 
-import org.bukkit.ChatColor;
+import me.shanodekono.nostrip.utils.ConfigUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.*;
+
 
 public class NoStripCommand implements CommandExecutor {
 
+    public List<UUID> toggle = new ArrayList<>();
+
+    private ConfigUtils cfgUtils;
+
+    public NoStripCommand(ConfigUtils configUtils) {
+        cfgUtils = configUtils;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("nostrip")) {
-            if (sender instanceof Player) {
-                Player player = (Player) sender;
-                ((Player) sender).getUniqueId();
-                if (!player.hasPermission("nostrip.toggle")) {
-                    player.sendMessage(ChatColor.RED + "Permission required");
-                    return false;
-                }else
-                    if (args.length == 1)
-                        if (args[0].equalsIgnoreCase("toggle"))
-                            if (me.shanodekono.nostrip.NoStrip.getEnabledPlayers().contains(player.getUniqueId())) {
-                                me.shanodekono.nostrip.NoStrip.getEnabledPlayers().remove(player.getUniqueId());
-                                player.sendMessage(ChatColor.RED + "Log Stripping Off!");
-                            }else{
-                                me.shanodekono.nostrip.NoStrip.getEnabledPlayers().add(player.getUniqueId());
-                                player.sendMessage(ChatColor.GREEN + "Log Stripping On!");
-                            }
-            }else
-                if (args.length == 1)
-                    if (args[0].equalsIgnoreCase("toggle")) {
-                        sender.sendMessage(ChatColor.RED + "Sorry only players can use this command");
-                    }
-            }if (sender instanceof Player) {
-                Player player = (Player) sender;
-                if (!player.hasPermission("nostrip.help")) {
-                    return false;
-                }else
-                    if (args.length == 1)
-                        if (args[0].equalsIgnoreCase("help")) {
-                            player.sendMessage(ChatColor.GREEN + "--NoStrip--Commands--:");
-                            player.sendMessage(ChatColor.GREEN + "---------------------");
-                            player.sendMessage(ChatColor.RED + "/nostrip toggle -" + ChatColor.GOLD +
-                                    " Toggles Log Stripping/Debarking");
-                            player.sendMessage(ChatColor.GOLD + "Permission -" + ChatColor.RED + " nostrip.toggle");
-                            player.sendMessage(ChatColor.RED + "/nostrip aliases -" + ChatColor.GOLD +
-                                    " Shows a list of command aliases");
-                            player.sendMessage(ChatColor.GOLD + "Permission -" + ChatColor.RED + " nostrip.toggle");
-                            player.sendMessage(ChatColor.RED + "/nostrip help -" + ChatColor.GOLD +
-                                    " Brings up this menu");
-                            player.sendMessage(ChatColor.GOLD + "Permission -" + ChatColor.RED + " nostrip.help");
-                    }else
-                        if (!player.hasPermission("nostrip.aliases")){
-                        player.sendMessage(ChatColor.RED + "Permission required!!");
-                        return false;
-                    }
-            }else
-                if (args.length == 1)
-                    if (args[0].equalsIgnoreCase("help")) {
-                    sender.sendMessage(ChatColor.GREEN + "--NoStrip--Commands--:");
-                    sender.sendMessage(ChatColor.GREEN + "---------------------");
-                    sender.sendMessage(ChatColor.RED + "/nostrip toggle -" + ChatColor.GOLD +
-                                " Toggles Log Stripping/Debarking");
-                    sender.sendMessage(ChatColor.GOLD + "Permission -" + ChatColor.RED + " nostrip.toggle");
-                    sender.sendMessage(ChatColor.RED + "/nostrip aliases -" + ChatColor.GOLD +
-                                " Shows a list of command aliases");
-                    sender.sendMessage(ChatColor.GOLD + "Permission -" + ChatColor.RED + " nostrip.aliases");
-                    sender.sendMessage(ChatColor.RED + "/nostrip help -" + ChatColor.GOLD +
-                                " Brings up this menu");
-                    sender.sendMessage(ChatColor.GOLD + "Permission -" + ChatColor.RED + " nostrip.help");
-            }if (sender instanceof Player) {
-                Player player = (Player) sender;
-                if (!player.hasPermission("nostrip.aliases")) {
-                    player.sendMessage(ChatColor.RED + "Permission required");
-                }else
-                    if (args.length == 1)
-                        if (args[0].equalsIgnoreCase("aliases")) {
-                            player.sendMessage(ChatColor.GREEN + "--NoStrip--Aliases--:");
-                            player.sendMessage(ChatColor.GREEN + "---------------------");
-                            player.sendMessage(ChatColor.RED + "/nostrip toggle -" + ChatColor.GOLD +
-                                    " /ns toggle, /nos toggle");
-                            player.sendMessage(ChatColor.RED + "/nostrip aliases -" + ChatColor.GOLD +
-                                    " /ns aliases, /nos aliases");
-                            player.sendMessage(ChatColor.RED + "/nostrip help -" + ChatColor.GOLD +
-                                    " /ns help, /nos help");
-                        }
-                    }else
-                        if (args.length == 1)
-                            if (args[0].equalsIgnoreCase("aliases")) {
-                                sender.sendMessage(ChatColor.GREEN + "--NoStrip--Aliases--:");
-                                sender.sendMessage(ChatColor.GREEN + "---------------------");
-                                sender.sendMessage(ChatColor.RED + "/nostrip toggle -" + ChatColor.GOLD +
-                                        " /ns toggle, /nos toggle");
-                                sender.sendMessage(ChatColor.RED + "/nostrip aliases -" + ChatColor.GOLD +
-                                        " /ns aliases, /nos aliases");
-                                sender.sendMessage(ChatColor.RED + "/nostrip help -" + ChatColor.GOLD +
-                                        " /ns help, /nos help");
-                            }
-        return false;
+
+        if (args.length != 1) {
+            if (cfgUtils.allowHelpMenu) {
+                sender.sendMessage(cfgUtils.color("&a------NoStrip------Commands------"));
+                sender.sendMessage(cfgUtils.color("&6/nostrip toggle - &8Toggles Log Stripping/Debarking"));
+                sender.sendMessage(cfgUtils.color("&6/nostrip aliases - &8Shows a list of command aliases"));
+
+                if (sender.hasPermission("nostrip.reload")) {
+                    sender.sendMessage(cfgUtils.color("&6/nostrip reload - &8Reloads The Config File"));
+                }
+
+                return true;
+            }
+
+            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand
+                    .replace("{command}", command.toString())));
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("reload")) {
+            if (sender.hasPermission("nostrip.reload")) {
+                cfgUtils.reloadConfig(sender);
+            }
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("aliases")) {
+            if (cfgUtils.allowAliasMenu) {
+                sender.sendMessage(cfgUtils.color("&------NoStrip------Aliases------:"));
+                sender.sendMessage(cfgUtils.color("&6/ns /nos /nostrip &8(toggle|aliases)"));
+            }
+            return true;
+        }
+
+        if (!args[0].equalsIgnoreCase("toggle")) {
+            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand
+                    .replace("{command}", command.toString())));
+            return true;
+        }
+
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.mustBePlayer));
+            return true;
+        }
+
+        Player player = (Player) sender;
+
+        if (!player.hasPermission("nostrip.toggle")) {
+            player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission));
+            return true;
+        }
+
+        String status;
+
+        if (!toggle.contains(player.getUniqueId())) {
+            toggle.add(player.getUniqueId());
+            status = "&coff";
+            player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                    .replace("{status}", status)));
+            return true;
+        }
+
+        toggle.remove(player.getUniqueId());
+        status = "&aon";
+        player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                .replace("{status}", status)));
+        return true;
     }
 
 }
