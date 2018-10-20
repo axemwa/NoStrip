@@ -1,0 +1,9 @@
+allow-help-menu: true
+allow-alias-menu: false
+messages:
+  prefix: '&8[&5NoStrip&8]'
+  unknown-command: '&cUnknown Command. Use /{command} (aliases|toggle)'
+  must-be-player: '&cYou Must Be A Player To Use This Command!'
+  no-permission: '&cYou Do Not Have Permission To Use This Command!'
+  toggle-message: '&2Log Stripping Toggled {status}'
+  config-reloaded: '&2Config Reloaded!'
