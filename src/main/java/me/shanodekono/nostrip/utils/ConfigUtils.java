@@ -7,7 +7,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 public class ConfigUtils {
+
+    public List<UUID> toggle = new ArrayList<>();
 
     private NoStrip plugin;
 

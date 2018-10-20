@@ -1,6 +1,6 @@
 package me.shanodekono.nostrip.listeners;
 
-import me.shanodekono.nostrip.commands.NoStripCommand;
+import me.shanodekono.nostrip.utils.ConfigUtils;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,9 +14,9 @@ public class PlayerInteractListener implements Listener {
 
     private List<Material> logs;
 
-    private NoStripCommand nsCommand;
+    private ConfigUtils cfgUtils;
 
-    public PlayerInteractListener(NoStripCommand noStripCommand) {
+    public PlayerInteractListener(ConfigUtils configUtils) {
         logs = new ArrayList<>();
 
         logs.add(Material.ACACIA_LOG);
@@ -26,11 +26,11 @@ public class PlayerInteractListener implements Listener {
         logs.add(Material.SPRUCE_LOG);
         logs.add(Material.OAK_LOG);
 
-        nsCommand = noStripCommand;
+        cfgUtils = configUtils;
     }
 
     @EventHandler
-    private void onInteract (PlayerInteractEvent event) {
+    private void onInteract(PlayerInteractEvent event) {
 
         // Checks if action is not right click, stops
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
@@ -42,7 +42,7 @@ public class PlayerInteractListener implements Listener {
             return;
         }
 
-        if (!nsCommand.toggle.contains(event.getPlayer().getUniqueId())) {
+        if (!cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
             return;
         }
 

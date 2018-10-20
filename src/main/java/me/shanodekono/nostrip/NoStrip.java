@@ -14,11 +14,10 @@ public class NoStrip extends JavaPlugin {
         Metrics metrics = new Metrics(this);
 
         ConfigUtils cfgUtils = new ConfigUtils(this);
-        NoStripCommand nsCommand = new NoStripCommand(cfgUtils);
 
         cfgUtils.loadConfig();
 
-        getServer().getPluginManager().registerEvents(new PlayerInteractListener(nsCommand), this);
+        getServer().getPluginManager().registerEvents(new PlayerInteractListener(cfgUtils), this);
         getCommand("nostrip").setExecutor(new NoStripCommand(cfgUtils));
     }
 

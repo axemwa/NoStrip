@@ -11,8 +11,6 @@ import java.util.*;
 
 public class NoStripCommand implements CommandExecutor {
 
-    public List<UUID> toggle = new ArrayList<>();
-
     private ConfigUtils cfgUtils;
 
     public NoStripCommand(ConfigUtils configUtils) {
@@ -70,15 +68,15 @@ public class NoStripCommand implements CommandExecutor {
 
             String status;
 
-            if (!toggle.contains(player.getUniqueId())) {
-                toggle.add(player.getUniqueId());
+            if (!cfgUtils.toggle.contains(player.getUniqueId())) {
+                cfgUtils.toggle.add(player.getUniqueId());
                 status = "&coff";
                 player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                         .replace("{status}", status)));
                 return true;
             }
 
-            toggle.remove(player.getUniqueId());
+            cfgUtils.toggle.remove(player.getUniqueId());
             status = "&aon";
             player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                     .replace("{status}", status)));
