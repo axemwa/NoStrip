@@ -54,7 +54,7 @@ public class ConfigUtils {
         plugin.reloadConfig();
         plugin.getConfig();
         plugin.saveConfig();
-        sender.sendMessage(configReloaded);
+        sender.sendMessage(color(prefix + " " + configReloaded));
     }
 
     public String color(String message) {
