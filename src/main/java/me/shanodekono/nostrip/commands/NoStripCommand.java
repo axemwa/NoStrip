@@ -22,31 +22,20 @@ public class NoStripCommand implements CommandExecutor {
             if (cfgUtils.allowHelpMenu) {
                 sender.sendMessage(cfgUtils.color("&a------NoStrip------Commands------"));
                 sender.sendMessage(cfgUtils.color("&6/nostrip toggle - &8Toggles Log Stripping/Debarking"));
-                sender.sendMessage(cfgUtils.color("&6/nostrip aliases - &8Shows a list of command aliases"));
 
                 if (sender.hasPermission("nostrip.reload")) {
                     sender.sendMessage(cfgUtils.color("&6/nostrip reload - &8Reloads The Config File"));
                 }
-
                 return true;
             }
 
-            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand
-                    .replace("{command}", command.toString())));
+            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
             return true;
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
             if (sender.hasPermission("nostrip.reload")) {
                 cfgUtils.reloadConfig(sender);
-            }
-            return true;
-        }
-
-        if (args[0].equalsIgnoreCase("aliases")) {
-            if (cfgUtils.allowAliasMenu) {
-                sender.sendMessage(cfgUtils.color("&------NoStrip------Aliases------:"));
-                sender.sendMessage(cfgUtils.color("&6/ns /nos /nostrip &8(toggle|aliases)"));
             }
             return true;
         }

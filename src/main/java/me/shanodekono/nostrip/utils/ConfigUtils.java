@@ -22,7 +22,6 @@ public class ConfigUtils {
     }
 
     public boolean allowHelpMenu;
-    public boolean allowAliasMenu;
 
     public String prefix;
     public String unknownCommand;
@@ -36,7 +35,6 @@ public class ConfigUtils {
         FileConfiguration config = plugin.getConfig();
 
         allowHelpMenu = config.getBoolean("allow-help-menu", true);
-        allowAliasMenu = config.getBoolean("allow-alias-menu", false);
 
         ConfigurationSection messages = config.getConfigurationSection("messages");
 
