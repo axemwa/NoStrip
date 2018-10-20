@@ -4,3 +4,12 @@ api-version: 1.13
 author: shanodekono
 description: Simple plugin to remove log stripping
 main: me.shanodekono.nostrip.NoStrip
+commands:
+  nostrip:
+    description: The main command to use with arguements eg "/ns toggle" "/ns help"
+    aliases: [ns,nos]
+
+
+
+
+

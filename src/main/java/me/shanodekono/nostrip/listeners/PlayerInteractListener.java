@@ -1,5 +1,6 @@
 package me.shanodekono.nostrip.listeners;
 
+import me.shanodekono.nostrip.NoStrip;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,11 +37,9 @@ public class PlayerInteractListener implements Listener {
             return;
         }
 
-        //Check if player has nostrip permission.
-        if (!event.getPlayer().hasPermission("nostrip.allow")) {
-            return;
+        if (NoStrip.getEnabledPlayers().contains(event.getPlayer().getUniqueId())) {
+            return;    //player has the strip option toggled ON
         }
-
         // Since all conditions were met stop the interaction from happening.
         event.setCancelled(true);
     }
