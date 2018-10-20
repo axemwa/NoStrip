@@ -6,8 +6,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.*;
-
 
 public class NoStripCommand implements CommandExecutor {
 
@@ -83,8 +81,7 @@ public class NoStripCommand implements CommandExecutor {
             return true;
         }
 
-        sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand
-                .replace("{command}", command.toString())));
+        sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
         return true;
     }
 
