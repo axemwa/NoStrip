@@ -18,4 +18,6 @@ Use permission nodes and commands to control which players can or can't strip lo
 
 ## SpigotMC - NoStrip NoStrip
 
+Testtttttt
+
 [SpigotMC - NoStrip](https://www.spigotmc.org/resources/nostrip-mc-1-13.61574/)
