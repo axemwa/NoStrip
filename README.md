@@ -25,6 +25,9 @@ Use permission nodes and commands to control which players can or can't strip lo
 *nostrip.axe.diamond* - Gives permission to strip logs with a diamond axe
 
 ## Aliases:
+
+- */ns*
+- */nos*
 - */ns toggle*
 - */nos toggle*
 - */ns reload*
