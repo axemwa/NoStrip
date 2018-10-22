@@ -1,4 +1,5 @@
 allow-help-menu: true
+
 messages:
   prefix: '&8[&5NoStrip&8]'
   unknown-command: '&cUnknown Command'

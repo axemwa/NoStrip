@@ -2,7 +2,6 @@ package me.shanodekono.nostrip.utils;
 
 import me.shanodekono.nostrip.NoStrip;
 import org.bukkit.ChatColor;
-
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,6 +27,7 @@ public class ConfigUtils {
     public String mustBePlayer;
     public String noPermission;
     public String toggleMessage;
+
     private String configReloaded;
 
     public void loadConfig() {
