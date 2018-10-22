@@ -39,6 +39,7 @@ public class PlayerInteractListener implements Listener {
 
         cfgUtils = configUtils;
     }
+
     @EventHandler
     private void onInteract(PlayerInteractEvent event) {
 
@@ -64,10 +65,12 @@ public class PlayerInteractListener implements Listener {
             if (event.getPlayer().hasPermission(axes.get(event.getItem().getType()))) {
                 return;
             }
+        if (!event.getPlayer().hasPermission("nostrip.axe.*")) {
+            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
+        }
 
             // Otherwise, Move On And Prevent Stripping The Log
         }
-
         event.setCancelled(true);
     }
 }
