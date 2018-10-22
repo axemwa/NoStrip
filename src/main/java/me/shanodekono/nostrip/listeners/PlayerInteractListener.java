@@ -31,7 +31,7 @@ public class PlayerInteractListener implements Listener {
         logs.add(Material.SPRUCE_LOG);
         logs.add(Material.OAK_LOG);
 
-        axes.put(Material.WOODEN_AXE, "nostrip.axe.wooden");
+        axes.put(Material.WOODEN_AXE, "nostrip.axe.wood");
         axes.put(Material.STONE_AXE, "nosttrip.axe.stone");
         axes.put(Material.IRON_AXE, "nostrip.axe.iron");
         axes.put(Material.GOLDEN_AXE, "nostrip.axe.gold");
@@ -65,9 +65,10 @@ public class PlayerInteractListener implements Listener {
             if (event.getPlayer().hasPermission(axes.get(event.getItem().getType()))) {
                 return;
             }
-        if (!event.getPlayer().hasPermission("nostrip.axe.*")) {
-            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
-        }
+
+            if (!event.getPlayer().hasPermission("nostrip.axe.*")) {
+                event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
+            }
 
             // Otherwise, Move On And Prevent Stripping The Log
         }
