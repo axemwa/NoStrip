@@ -64,22 +64,26 @@ public class NoStripCommand implements CommandExecutor {
             }
 
             String status;
+            String astatus;
 
             if (!cfgUtils.toggle.contains(player.getUniqueId())) {
                 cfgUtils.toggle.add(player.getUniqueId());
-                status = "&coff";
+                status = "&cdisabled";
+                astatus = "&coff";
                 player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                        .replace("{status}", status)));
+                        .replace("{status}", status)
+                        .replace("{astatus}", astatus)));
                 return true;
             }
 
             cfgUtils.toggle.remove(player.getUniqueId());
-            status = "&aon";
+            status = "&aenabled";
+            astatus = "&aon";
             player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                    .replace("{status}", status)));
+                    .replace("{status}", status)
+                    .replace("{astatus}", astatus)));
             return true;
         }
-
         sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
         return true;
     }
