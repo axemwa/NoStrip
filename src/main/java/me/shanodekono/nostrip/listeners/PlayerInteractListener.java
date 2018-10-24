@@ -78,7 +78,7 @@ public class PlayerInteractListener implements Listener {
                 return;
             }
 
-            if (!event.getPlayer().hasPermission("nostrip.axe.*")) {
+            if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType())))) {
                 event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
             }
 
