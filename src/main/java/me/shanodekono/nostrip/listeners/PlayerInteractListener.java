@@ -40,7 +40,7 @@ public class PlayerInteractListener implements Listener {
         axes.add(Material.DIAMOND_AXE);
 
         axePermissions.put(Material.WOODEN_AXE, "nostrip.axe.wood");
-        axePermissions.put(Material.STONE_AXE, "nosttrip.axe.stone");
+        axePermissions.put(Material.STONE_AXE, "nostrip.axe.stone");
         axePermissions.put(Material.IRON_AXE, "nostrip.axe.iron");
         axePermissions.put(Material.GOLDEN_AXE, "nostrip.axe.gold");
         axePermissions.put(Material.DIAMOND_AXE, "nostrip.axe.diamond");
