@@ -14,7 +14,7 @@ Use permission nodes and commands to control which players can or can't strip lo
 
 *nostrip.axe.** - Gives permission to strip logs with all axes
 
-*nostrip.axe.wooden* - Gives permission to strip logs with a wooden axe
+*nostrip.axe.wood* - Gives permission to strip logs with a wooden axe
 
 *nostrip.axe.stone* - Gives permission to strip logs with a stone axe
 
