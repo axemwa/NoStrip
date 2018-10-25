@@ -6,5 +6,5 @@ messages:
   must-be-player: '&cYou Must Be A Player To Use This Command!'
   no-permission: '&cPermission Required! Contact server admin!'
   no-axe-permission: '&cAxe Is Denied! Permission Required!'
-  toggle-message: '&2Log Stripping {astatus}'
+  toggle-message: '&2Log Stripping Toggled {status}'
   config-reloaded: '&2Config Reloaded!'
