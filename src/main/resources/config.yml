@@ -2,7 +2,7 @@
 # --------------[Toggle Message]---------------
 # Available Toggle message placeholders for toggle status
 # {status} = on | off
-# {aststus} = enabled | disabled
+# {astatus} = enabled | disabled
 # ---------------------------------------------
 # -------------[Help/command Menu]------------------------------------------------------------------
 # Whether or not players can see the NoStrip menu/commands in chat with the /nostrip command
