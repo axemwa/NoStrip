@@ -8,21 +8,21 @@ Use permission nodes and commands to control which players can or can't strip lo
 - */nostrip* reload - Reloads the config
 
 ## Permissions:
-*nostrip.toggle* - Gives permission to use the toggle command | Default Op
+*nostrip.toggle* - Permission to use the toggle command | Default Op
 
-*nostrip.reload* - Gives permission to use/view the reload command shown in the menu | Default Op
+*nostrip.reload* - Permission to use/view the reload command shown in the menu | Default Op
 
-*nostrip.axe.** - Gives permission to strip logs with all axes
+*nostrip.axe.** - Permission to strip logs with all axes
 
-*nostrip.axe.wood* - Gives permission to strip logs with a wooden axe
+*nostrip.axe.wood* - Permission to strip logs with a wooden axe
 
-*nostrip.axe.stone* - Gives permission to strip logs with a stone axe
+*nostrip.axe.stone* - Permission to strip logs with a stone axe
 
-*nostrip.axe.iron* - Gives permission to strip logs with an iron axe
+*nostrip.axe.iron* - Permission to strip logs with an iron axe
 
-*nostrip.axe.gold* - Gives permission to strip logs with a gold axe
+*nostrip.axe.gold* - Permission to strip logs with a gold axe
 
-*nostrip.axe.diamond* - Gives permission to strip logs with a diamond axe
+*nostrip.axe.diamond* - Permission to strip logs with a diamond axe
 
 ## Aliases:
 
