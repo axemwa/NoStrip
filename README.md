@@ -33,6 +33,10 @@ Use permission nodes and commands to control which players can or can't strip lo
 - */ns reload*
 - */nos reload*
 
-## SpigotMC - NoStrip
-Author - Shano_dekono a.k.a axemwa
-[SpigotMC - NoStrip - Resource Page](https://www.spigotmc.org/resources/nostrip-mc-1-13.61574/)
+## Author:
+
+*Shano_dekono*  
+*Alias: axemwa*
+
+## *Links:*
+[SpigotMc - NoStrip - Resource Page](https://www.spigotmc.org/resources/nostrip-mc-1-13.61574/)
