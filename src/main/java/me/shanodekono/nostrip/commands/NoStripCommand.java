@@ -20,21 +20,19 @@ public class NoStripCommand implements CommandExecutor {
 
         if (args.length != 1) {
             if (cfgUtils.allowHelpMenu) {
-                sender.sendMessage(cfgUtils.color("&5------------------\\"));
-                sender.sendMessage(cfgUtils.color("&a*~&6{X&c{x&8&l[&5&lNo&a&lStrip&8&l]&r&cx}&6X}&a~*&5|>"));
-                sender.sendMessage(cfgUtils.color("&5\\-----------------/"));
-                sender.sendMessage(cfgUtils.color("&8/     &8&l[&e&lCommands&8&l]   &8\\"));
-                sender.sendMessage(cfgUtils.color("&8\\-----------------/"));
-                sender.sendMessage(cfgUtils.color("&c&l/nostrip toggle   &8|>"));
-                sender.sendMessage(cfgUtils.color("&8-------------------|>"));
-                sender.sendMessage(cfgUtils.color("&8Turns Log Stripping/Debarking &aOn&8|&cOff&8 |>"));
-                sender.sendMessage(cfgUtils.color("&8Must be toggled &aon/enabled &8to strip with permitted axes |>"));
-                sender.sendMessage(cfgUtils.color("&8Toggle &coff/disabled&8 = log stripping &cOff &8for all axes    |>"));
-                sender.sendMessage(cfgUtils.color("&8-----------------------------------------------"));
+                sender.sendMessage(cfgUtils.color("&5=== [&a*~&6{X&c{x&f--&4&lNo&a&lStrip&f--&r&cx}&6X}&a~*&5] ==="));
+                sender.sendMessage(cfgUtils.color(""));
+                sender.sendMessage(cfgUtils.color("&c/nostrip toggle"));
+                sender.sendMessage(cfgUtils.color("&e- &oTurns Log Stripping/Debarking &a&oOn&e&o|&c&oOff"));
+                sender.sendMessage(cfgUtils.color
+                        ("&e- &oMust be toggled &a&oon/enabled &e&oto strip with permitted axes"));
+                sender.sendMessage(cfgUtils.color
+                        ("&e- &oToggle &c&ooff/disabled&e&o = log stripping &c&oOff &e&ofor all axes"));
 
                 if (sender.hasPermission("nostrip.reload")) {
-                    sender.sendMessage(cfgUtils.color("&c&l/nostrip reload &r&8|>"));
-                    sender.sendMessage(cfgUtils.color("&8Reloads The Config File &r&8|>"));
+                    sender.sendMessage(cfgUtils.color(""));
+                    sender.sendMessage(cfgUtils.color("&c/nostrip reload"));
+                    sender.sendMessage(cfgUtils.color("&e- &oReloads The Config File"));
                 }
                 return true;
             }
