@@ -12,7 +12,7 @@
 allow-help-menu: true
 
 messages:
-  prefix: '&8[&5NoStrip&8]'
+  prefix: '&8[&4NoStrip&8]'
   unknown-command: '&cUnknown Command'
   must-be-player: '&cYou Must Be A Player To Use This Command!'
   no-permission: '&cPermission Required! Contact server admin!'
