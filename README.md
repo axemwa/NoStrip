@@ -8,9 +8,9 @@ Use permission nodes and commands to control which players can or can't strip lo
 - */nostrip* reload - Reloads the config
 
 ## Permissions:
-*nostrip.toggle* - Permission to use the toggle command | Default Op
+*nostrip.toggle* - Permission to use the /ns toggle command | Default Op
 
-*nostrip.reload* - Permission to use/view the reload command shown in the menu | Default Op
+*nostrip.reload* - Permission to use/view the /ns reload command shown in the menu | Default Op
 
 *nostrip.axe.** - Permission to strip logs with all axes
 
@@ -23,6 +23,8 @@ Use permission nodes and commands to control which players can or can't strip lo
 *nostrip.axe.gold* - Permission to strip logs with a gold axe
 
 *nostrip.axe.diamond* - Permission to strip logs with a diamond axe
+
+*nostrip.** - Wildcard permission to use all commands and to strip logs with all axes | Default Op
 
 ## Aliases:
 
