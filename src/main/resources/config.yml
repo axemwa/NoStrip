@@ -10,6 +10,7 @@
 # --------------------------------------------------------------------------------------------------
 
 allow-help-menu: true
+send-colors-in-console: true
 
 messages:
   prefix: '&8[&4NoStrip&8]'

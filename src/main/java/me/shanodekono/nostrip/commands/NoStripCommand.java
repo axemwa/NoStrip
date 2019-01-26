@@ -1,11 +1,11 @@
 package me.shanodekono.nostrip.commands;
 
-import me.shanodekono.nostrip.utils.ConfigUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import me.shanodekono.nostrip.utils.ConfigUtils;
 
 public class NoStripCommand implements CommandExecutor {
 
@@ -19,45 +19,41 @@ public class NoStripCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length != 1) {
-            if (cfgUtils.allowHelpMenu) {
-                sender.sendMessage(cfgUtils.color("&5=== [&a*~&6{X&c{x&f--&4&lNo&a&lStrip&f--&r&cx}&6X}&a~*&5] ==="));
-                sender.sendMessage(cfgUtils.color(""));
-                sender.sendMessage(cfgUtils.color("&c/nostrip toggle"));
-                sender.sendMessage(cfgUtils.color("&e- &oTurns Log Stripping/Debarking &a&oOn&e&o|&c&oOff"));
-                sender.sendMessage(cfgUtils.color
-                        ("&e- &oMust be toggled &a&oon/enabled &e&oto strip with permitted axes"));
-                sender.sendMessage(cfgUtils.color
-                        ("&e- &oToggle &c&ooff/disabled&e&o = log stripping &c&oOff &e&ofor all axes"));
+            if (ConfigUtils.allowHelpMenu) {
+            	ConfigUtils.send(sender, "&5=== [&a*~&6{X&c{x&f--&4&lNo&a&lStrip&f--&r&cx}&6X}&a~*&5] ===");
+            	ConfigUtils.send(sender, "");
+            	ConfigUtils.send(sender, "&c/nostrip toggle");
+            	ConfigUtils.send(sender, "&e- &oTurns Log Stripping/Debarking &a&oOn&e&o|&c&oOff");
+            	ConfigUtils.send(sender, "&e- &oMust be toggled &a&oon/enabled &e&oto strip with permitted axes");
+            	ConfigUtils.send(sender, "&e- &oToggle &c&ooff/disabled&e&o = log stripping &c&oOff &e&ofor all axes");
 
                 if (sender.hasPermission("nostrip.reload")) {
-                    sender.sendMessage(cfgUtils.color(""));
-                    sender.sendMessage(cfgUtils.color("&c/nostrip reload"));
-                    sender.sendMessage(cfgUtils.color("&e- &oReloads The Config File"));
+                	ConfigUtils.send(sender, "");
+                	ConfigUtils.send(sender, "&c/nostrip reload");
+                	ConfigUtils.send(sender, "&e- &oReloads The Config File");
                 }
                 return true;
             }
 
-            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
+            ConfigUtils.send(sender, ConfigUtils.prefix + " " + ConfigUtils.unknownCommand);
             return true;
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
-            if (sender.hasPermission("nostrip.reload")) {
-                cfgUtils.reloadConfig(sender);
-            }
+            if (sender.hasPermission("nostrip.reload")) cfgUtils.reloadConfig(sender);
             return true;
         }
 
         if (args[0].equalsIgnoreCase("toggle")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.mustBePlayer));
+            	ConfigUtils.send(sender, ConfigUtils.prefix + " " + ConfigUtils.mustBePlayer);
                 return true;
             }
 
             Player player = (Player) sender;
 
             if (!player.hasPermission("nostrip.toggle")) {
-                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission));
+            	ConfigUtils.send(player, ConfigUtils.prefix + " " + ConfigUtils.noPermission);
                 return true;
             }
 
@@ -68,21 +64,23 @@ public class NoStripCommand implements CommandExecutor {
                 cfgUtils.toggle.add(player.getUniqueId());
                 status = "&cdisabled";
                 astatus = "&coff";
-                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                ConfigUtils.send(player,
+                		ConfigUtils.prefix + " " + ConfigUtils.toggleMessage
                         .replace("{status}", status)
-                        .replace("{astatus}", astatus)));
+                        .replace("{astatus}", astatus));
                 return true;
             }
 
             cfgUtils.toggle.remove(player.getUniqueId());
             status = "&aenabled";
             astatus = "&aon";
-            player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+            ConfigUtils.send(player,
+            		ConfigUtils.prefix + " " + ConfigUtils.toggleMessage
                     .replace("{status}", status)
-                    .replace("{astatus}", astatus)));
+                    .replace("{astatus}", astatus));
             return true;
         }
-        sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
+        ConfigUtils.send(sender, ConfigUtils.prefix + " " + ConfigUtils.unknownCommand);
         return true;
     }
 

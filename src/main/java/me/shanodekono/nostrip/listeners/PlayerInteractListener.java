@@ -1,16 +1,17 @@
 package me.shanodekono.nostrip.listeners;
 
-import me.shanodekono.nostrip.utils.ConfigUtils;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import me.shanodekono.nostrip.utils.ConfigUtils;
 
 public class PlayerInteractListener implements Listener {
 
@@ -21,6 +22,7 @@ public class PlayerInteractListener implements Listener {
     private ConfigUtils cfgUtils;
 
     public PlayerInteractListener(ConfigUtils configUtils) {
+        cfgUtils = configUtils;
 
         logs = new ArrayList<>();
         axes = new ArrayList<>();
@@ -45,26 +47,21 @@ public class PlayerInteractListener implements Listener {
         axePermissions.put(Material.GOLDEN_AXE, "nostrip.axe.gold");
         axePermissions.put(Material.DIAMOND_AXE, "nostrip.axe.diamond");
 
-        cfgUtils = configUtils;
     }
 
     @EventHandler
     private void onInteract(PlayerInteractEvent event) {
 
-
         // If Action is NOT A Right Click, Stop
-        if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
-            return;
-        }
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK)
+        	return;
 
         // If The Block Is NOT A Log, Stop
-        if (!logs.contains(event.getClickedBlock().getType())) {
-            return;
-        }
+        if (!logs.contains(event.getClickedBlock().getType()))
+        	return;
 
-        if (!axes.contains(event.getPlayer().getInventory().getItemInMainHand().getType())) {
-            return;
-        }
+        if (!axes.contains(event.getPlayer().getInventory().getItemInMainHand().getType()))
+        	return;
 
         /*
         NOTE: Toggle Contains The Players Who Want To Prevent Stripping, So We Want To Check If They Are Not In Toggle
@@ -74,13 +71,11 @@ public class PlayerInteractListener implements Listener {
         if (!cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
 
             // If They Have An Individual Axe Permission For The Axe They Are Using, Let Them Strip The Log
-            if (event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType()))) {
-                return;
-            }
+            if (event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType())))
+            	return;
 
-            if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType())))) {
-                event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
-            }
+            if (!event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType())))
+            	event.getPlayer().sendMessage(ConfigUtils.prefix + " " + ConfigUtils.noAxePermission);
 
             // Otherwise, Move On And Prevent Stripping The Log
         }
