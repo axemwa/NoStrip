@@ -32,6 +32,12 @@ public class PlayerInteractListener implements Listener {
         logs.add(Material.JUNGLE_LOG);
         logs.add(Material.SPRUCE_LOG);
         logs.add(Material.OAK_LOG);
+        logs.add(Material.ACACIA_WOOD);
+        logs.add(Material.BIRCH_WOOD);
+        logs.add(Material.DARK_OAK_WOOD);
+        logs.add(Material.JUNGLE_WOOD);
+        logs.add(Material.SPRUCE_WOOD);
+        logs.add(Material.OAK_WOOD);
 
         axes.add(Material.WOODEN_AXE);
         axes.add(Material.STONE_AXE);
