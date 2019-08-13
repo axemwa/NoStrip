@@ -20,19 +20,23 @@ public class NoStripCommand implements CommandExecutor {
 
         if (args.length != 1) {
             if (cfgUtils.allowHelpMenu) {
-                sender.sendMessage(cfgUtils.color("&5=== [&a*~&6{X&c{x&f--&4&lNo&a&lStrip&f--&r&cx}&6X}&a~*&5] ==="));
+                sender.sendMessage(cfgUtils.color(""));
+                sender.sendMessage(cfgUtils.color("                &c&l⦸ &4&lNo&c&lStrip &c&l⦸"));
                 sender.sendMessage(cfgUtils.color(""));
                 sender.sendMessage(cfgUtils.color("&c/nostrip toggle"));
+                sender.sendMessage(cfgUtils.color(""));
                 sender.sendMessage(cfgUtils.color("&e- &oTurns Log Stripping/Debarking &a&oOn&e&o|&c&oOff"));
                 sender.sendMessage(cfgUtils.color
                         ("&e- &oMust be toggled &a&oon/enabled &e&oto strip with permitted axes"));
                 sender.sendMessage(cfgUtils.color
                         ("&e- &oToggle &c&ooff/disabled&e&o = log stripping &c&oOff &e&ofor all axes"));
+                sender.sendMessage(cfgUtils.color(""));
 
                 if (sender.hasPermission("nostrip.reload")) {
-                    sender.sendMessage(cfgUtils.color(""));
                     sender.sendMessage(cfgUtils.color("&c/nostrip reload"));
+                    sender.sendMessage(cfgUtils.color(""));
                     sender.sendMessage(cfgUtils.color("&e- &oReloads The Config File"));
+                    sender.sendMessage(cfgUtils.color(""));
                 }
                 return true;
             }
