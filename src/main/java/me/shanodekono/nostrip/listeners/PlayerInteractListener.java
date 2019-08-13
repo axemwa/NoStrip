@@ -57,20 +57,20 @@ public class PlayerInteractListener implements Listener {
     @EventHandler
     private void onInteract(PlayerInteractEvent event) {
 
-
         // If Action is NOT A Right Click, Stop
-        if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK)
             return;
-        }
+
+        if (event.getItem()==(null))
+            return;
 
         // If The Block Is NOT A Log, Stop
-        if (!logs.contains(event.getClickedBlock().getType())) {
+        if (!logs.contains(event.getClickedBlock().getType()))
             return;
-        }
 
-        if (!axes.contains(event.getPlayer().getInventory().getItemInMainHand().getType())) {
+        if (!axes.contains(event.getPlayer().getInventory().getItemInMainHand().getType())
+                && !axes.contains(event.getPlayer().getInventory().getItemInOffHand().getType()))
             return;
-        }
 
         /*
         NOTE: Toggle Contains The Players Who Want To Prevent Stripping, So We Want To Check If They Are Not In Toggle
@@ -80,13 +80,11 @@ public class PlayerInteractListener implements Listener {
         if (!cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
 
             // If They Have An Individual Axe Permission For The Axe They Are Using, Let Them Strip The Log
-            if (event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType()))) {
+            if (event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType())))
                 return;
-            }
 
-            if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType())))) {
+            if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType()))))
                 event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
-            }
 
             // Otherwise, Move On And Prevent Stripping The Log
         }
