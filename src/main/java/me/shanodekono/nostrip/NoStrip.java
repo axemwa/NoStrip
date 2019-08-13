@@ -16,8 +16,7 @@ public class NoStrip extends JavaPlugin {
         Metrics metrics = new Metrics(this);
 
         ConfigUtils cfgUtils = new ConfigUtils(this);
-        colorStr("&eChecking permissions...");
-        colorStr("&aNoStrip has successfully loaded!");
+        colorStr("&aNoStrip Enabled");
 
         cfgUtils.loadConfig();
 
