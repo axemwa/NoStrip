@@ -30,7 +30,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>me.shanodekono</shadedPattern>
+                            <shadedPattern>me.shanodekono.nostrip</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -59,8 +59,8 @@
         </repository>
 
         <repository>
-            <id>bstats-repo</id>
-            <url>http://repo.bstats.org/content/repositories/releases/</url>
+            <id>CodeMC</id>
+            <url>https://repo.codemc.org/repository/maven-public</url>
         </repository>
     </repositories>
     <dependencies>
@@ -75,7 +75,7 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>1.2</version>
+            <version>1.5</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
