@@ -35,7 +35,7 @@
           <relocations>
             <relocation>
               <pattern>org.bstats</pattern>
-              <shadedPattern>me.shanodekono</shadedPattern>
+              <shadedPattern>me.shanodekono.nostrip</shadedPattern>
             </relocation>
           </relocations>
         </configuration>
