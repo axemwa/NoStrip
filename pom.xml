@@ -6,8 +6,10 @@
 
     <groupId>me.shanodekono.nostrip</groupId>
     <artifactId>NoStrip</artifactId>
-    <version>1.7</version>
-
+    <version>1.8</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <build>
         <plugins>
             <plugin>
