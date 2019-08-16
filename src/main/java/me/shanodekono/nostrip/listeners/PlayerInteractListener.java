@@ -100,7 +100,7 @@ public class PlayerInteractListener implements Listener {
             event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                     .replace("{status}", status
                     .replace("{astatus}", astatus))));
-            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.noPermission
+            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.noTogglePermission
                     .replace("{permission}", permission)));
         }
         event.setCancelled(true);

@@ -27,6 +27,7 @@ public class ConfigUtils {
     public String unknownCommand;
     public String mustBePlayer;
     public String noPermission;
+    public String noTogglePermission;
     public String noAxePermission;
     public String toggleMessage;
 
@@ -45,6 +46,7 @@ public class ConfigUtils {
         unknownCommand = messages.getString("unknown-command");
         mustBePlayer = messages.getString("must-be-player");
         noPermission = messages.getString("no-permission");
+        noTogglePermission = messages.getString("no-toggle-permission");
         noAxePermission = messages.getString("no-axe-permission");
         toggleMessage = messages.getString("toggle-message");
         configReloaded = messages.getString("config-reloaded");

@@ -49,7 +49,11 @@ public class NoStripCommand implements CommandExecutor {
             if (sender.hasPermission("nostrip.reload")) {
                 cfgUtils.reloadConfig(sender);
             }
+            if (!sender.hasPermission("nostrip.reload")) {
+                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission));
+            }
             return true;
+
         }
 
         if (args[0].equalsIgnoreCase("toggle")) {
@@ -62,7 +66,7 @@ public class NoStripCommand implements CommandExecutor {
             String permission;
             if (!player.hasPermission("nostrip.toggle")) {
                 permission = "&cnostrip.toggle";
-                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noTogglePermission
                         .replace("{permission}", permission)));
                 return true;
             }
