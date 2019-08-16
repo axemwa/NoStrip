@@ -1,10 +1,10 @@
 # -----------------[NoStrip]-------------------
-# -------------[Toggle Message]----------------
+# -------------[Toggle Message]--------------------------------------------------------------------
 # Available Toggle message placeholders for toggle status
 # {status} = on | off
 # {astatus} = enabled | disabled
-# {permission} = Permission that is required (ONLY APPLIES TO THE "no-permission" MESSAGE SO FAR)
-# ---------------------------------------------
+# {permission} = Permission required to toggle on/off (ONLY APPLIES TO THE "no-permission" MESSAGE)
+# --------------------------------------------------------------------------------------------------
 # -------------[Help/command Menu]------------------------------------------------------------------
 # Whether or not players can see the NoStrip menu/commands in chat with the /nostrip command
 # allow-help-menu: true/false
@@ -15,7 +15,7 @@
 # If set to false and they don't have the 'nostrip.toggle' permission
 # they will be notified by the 'toggle-message' and 'no-permission' messages
 # Axe permissions are still required
-# ----------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 
 allow-help-menu: true
 toggle-default-on: false
