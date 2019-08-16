@@ -55,6 +55,7 @@ public class PlayerInteractListener implements Listener {
     }
 
     @EventHandler
+
     private void onInteract(PlayerInteractEvent event) {
 
         // If Action is NOT A Right Click, Stop
@@ -87,6 +88,20 @@ public class PlayerInteractListener implements Listener {
                 event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
 
             // Otherwise, Move On And Prevent Stripping The Log
+        }
+        String status;
+        String astatus;
+        String permission;
+        if (cfgUtils.toggle.contains(event.getPlayer().getUniqueId())
+                && !event.getPlayer().hasPermission("nostrip.toggle")) {
+            status = "&cdisabled";
+            astatus = "&coff";
+            permission = "nostrip.toggle";
+            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                    .replace("{status}", status
+                    .replace("{astatus}", astatus))));
+            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.noPermission
+                    .replace("{permission}", permission)));
         }
         event.setCancelled(true);
     }
