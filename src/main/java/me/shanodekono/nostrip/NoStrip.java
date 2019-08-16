@@ -2,6 +2,7 @@ package me.shanodekono.nostrip;
 
 import me.shanodekono.nostrip.commands.NoStripCommand;
 import me.shanodekono.nostrip.listeners.PlayerInteractListener;
+import me.shanodekono.nostrip.listeners.PlayerJoinListener;
 import me.shanodekono.nostrip.utils.ConfigUtils;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
@@ -20,6 +21,7 @@ public class NoStrip extends JavaPlugin {
 
         cfgUtils.loadConfig();
 
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(cfgUtils), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractListener(cfgUtils), this);
         getCommand("nostrip").setExecutor(new NoStripCommand(cfgUtils));
     }
