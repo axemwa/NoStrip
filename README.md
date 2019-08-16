@@ -39,7 +39,7 @@ Use permission nodes and commands to control which players can or can't strip Wo
 
 **Alter-Ego**
   
-**Aliases:** *Shanno_dekono, Axemwa*
+**Aliases:** *Shano_dekono, Axemwa*
 
 ## *Links:*
 [SpigotMc - NoStrip - Resource Page](https://www.spigotmc.org/resources/nostrip-mc-1-13.61574/)
