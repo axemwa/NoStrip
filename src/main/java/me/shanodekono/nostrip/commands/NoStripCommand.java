@@ -59,15 +59,17 @@ public class NoStripCommand implements CommandExecutor {
             }
 
             Player player = (Player) sender;
-
+            String permission;
             if (!player.hasPermission("nostrip.toggle")) {
-                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission));
+                permission = "&cnostrip.toggle";
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission
+                        .replace("{permission}", permission)));
                 return true;
             }
 
             String status;
             String astatus;
-
+            // If player isn't in toggle list which prevents stripping, add them
             if (!cfgUtils.toggle.contains(player.getUniqueId())) {
                 cfgUtils.toggle.add(player.getUniqueId());
                 status = "&cdisabled";
@@ -77,14 +79,16 @@ public class NoStripCommand implements CommandExecutor {
                         .replace("{astatus}", astatus)));
                 return true;
             }
-
-            cfgUtils.toggle.remove(player.getUniqueId());
-            status = "&aenabled";
-            astatus = "&aon";
-            player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                    .replace("{status}", status)
-                    .replace("{astatus}", astatus)));
-            return true;
+            // Player removed from toggle means to allow stripping
+            if (cfgUtils.toggle.contains(player.getUniqueId())) {
+                cfgUtils.toggle.remove(player.getUniqueId());
+                status = "&aenabled";
+                astatus = "&aon";
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                        .replace("{status}", status)
+                        .replace("{astatus}", astatus)));
+                return true;
+            }
         }
         sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
         return true;
