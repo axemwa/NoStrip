@@ -43,5 +43,10 @@ Use permission nodes and commands to control which players can or can't strip Wo
 
 ## *Links:*
 [SpigotMc - NoStrip - Resource Page](https://www.spigotmc.org/resources/nostrip-mc-1-13.61574/)
+
 [Bukkit/CurseForge - NoStrip - Resource Page](https://dev.bukkit.org/projects/nostrip)
+
 [Config.yml](https://dev.bukkit.org/projects/nostrip/pages/configuration)
+
+
+
