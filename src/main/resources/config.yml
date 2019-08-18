@@ -5,20 +5,24 @@
 # {astatus} = enabled | disabled
 # {permission} = Permission required to toggle on/off (ONLY APPLIES TO THE "no-permission" MESSAGE)
 # --------------------------------------------------------------------------------------------------
+# Whether or not players should be notified of their toggle status when they join
+# notify-on-join: true/false
+# --------------------------------------------------------------------------------------------------
 # -------------[Help/command Menu]------------------------------------------------------------------
-# Whether or not players can see the NoStrip menu/commands in chat with the /nostrip command
+# Whether or not players can see the NoStrip menu/commands in chat with the /nostrip command.
 # allow-help-menu: true/false
 # --------------------------------------------------------------------------------------------------
 # -------------[Toggle Default]---------------------------------------------------------------------
 # Whether players will have stripping toggled on when joining.
 # toggle-default-on: true/false
 # If set to false and they don't have the 'nostrip.toggle' permission
-# they will be notified by the 'toggle-message' and 'no-permission' messages
-# Axe permissions are still required
+# they will be notified by the 'toggle-message' and 'no-permission' messages.
+# Axe permissions are still required.
 # --------------------------------------------------------------------------------------------------
 
 allow-help-menu: true
 toggle-default-on: false
+notify-on-join: true
 
 messages:
   prefix: '&8&l[&c&l⦸ &4&lNo&c&lStrip &c&l⦸&8&l]'
