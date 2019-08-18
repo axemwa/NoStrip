@@ -60,6 +60,7 @@ public class ConfigUtils {
         plugin.reloadConfig();
         plugin.getConfig();
         plugin.saveConfig();
+        loadConfig();
         sender.sendMessage(color(prefix + " " + configReloaded));
     }
 
