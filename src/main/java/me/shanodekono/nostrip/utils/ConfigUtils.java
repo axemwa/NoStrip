@@ -22,6 +22,7 @@ public class ConfigUtils {
 
     public boolean allowHelpMenu;
     public boolean toggleDefaultOn;
+    public boolean notifyOnJoin;
 
     public String prefix;
     public String unknownCommand;
@@ -39,6 +40,7 @@ public class ConfigUtils {
 
         allowHelpMenu = config.getBoolean("allow-help-menu", true);
         toggleDefaultOn = config.getBoolean("toggle-default-on", false);
+        notifyOnJoin = config.getBoolean("notify-on-join", true);
 
         ConfigurationSection messages = config.getConfigurationSection("messages");
 
