@@ -25,8 +25,10 @@ public class PlayerJoinListener implements Listener {
 
     private void onJoin(PlayerJoinEvent event) {
 
-        if (!cfgUtils.toggleDefaultOn) {
+        if (!cfgUtils.toggleDefaultOn && !cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
             cfgUtils.toggle.add(event.getPlayer().getUniqueId());
+        }
+        if (cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
             BukkitScheduler scheduler = getServer().getScheduler();
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
@@ -37,20 +39,23 @@ public class PlayerJoinListener implements Listener {
                         astatus = "&coff";
                         event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                                 .replace("{status}", status
-                                .replace("{astatus}", astatus))));
+                                        .replace("{astatus}", astatus))));
                     }
                 }
             }, 20L);
-        }else{
+        }
+        if (cfgUtils.toggleDefaultOn && cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
             cfgUtils.toggle.remove(event.getPlayer().getUniqueId());
+        }
+        if (!cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
             BukkitScheduler scheduler = getServer().getScheduler();
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
                     String status;
                     String astatus;
                     if (cfgUtils.notifyOnJoin) {
-                        status = "&cenabled";
-                        astatus = "&con";
+                        status = "&aenabled";
+                        astatus = "&aon";
                         event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                                 .replace("{status}", status
                                         .replace("{astatus}", astatus))));

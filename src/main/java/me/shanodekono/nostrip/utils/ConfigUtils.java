@@ -39,7 +39,7 @@ public class ConfigUtils {
         FileConfiguration config = plugin.getConfig();
 
         allowHelpMenu = config.getBoolean("allow-help-menu", true);
-        toggleDefaultOn = config.getBoolean("toggle-default-on", false);
+        toggleDefaultOn = config.getBoolean("toggle-default-on", true);
         notifyOnJoin = config.getBoolean("notify-on-join", true);
 
         ConfigurationSection messages = config.getConfigurationSection("messages");

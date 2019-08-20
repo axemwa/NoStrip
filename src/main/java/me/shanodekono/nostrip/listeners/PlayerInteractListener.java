@@ -96,7 +96,7 @@ public class PlayerInteractListener implements Listener {
                 && !event.getPlayer().hasPermission("nostrip.toggle")) {
             status = "&cdisabled";
             astatus = "&coff";
-            permission = "nostrip.toggle";
+            permission = "&cnostrip.toggle";
             event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                     .replace("{status}", status
                     .replace("{astatus}", astatus))));
