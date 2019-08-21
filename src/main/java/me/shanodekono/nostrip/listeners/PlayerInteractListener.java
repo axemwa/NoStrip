@@ -83,9 +83,15 @@ public class PlayerInteractListener implements Listener {
             // If They Have An Individual Axe Permission For The Axe They Are Using, Let Them Strip The Log
             if (event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType())))
                 return;
-
-            if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType()))))
-                event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission));
+            String permission;
+            String apermission;
+            if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType())))) {
+                permission = "&cnostrip.axe.*";
+                apermission = "&cnostrip.axe.(type)";
+                event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission
+                        .replace("{permission}", permission
+                        .replace("{apermission}", apermission))));
+            }
 
             // Otherwise, Move On And Prevent Stripping The Log
         }
