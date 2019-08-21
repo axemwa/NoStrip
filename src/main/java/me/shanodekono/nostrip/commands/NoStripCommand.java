@@ -49,11 +49,13 @@ public class NoStripCommand implements CommandExecutor {
             if (sender.hasPermission("nostrip.reload")) {
                 cfgUtils.reloadConfig(sender);
             }
+            String permission;
             if (!sender.hasPermission("nostrip.reload")) {
-                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noPermission));
+                permission = "&cnostrip.reload";
+                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noReloadPermission
+                        .replace("{permission}", permission)));
             }
             return true;
-
         }
 
         if (args[0].equalsIgnoreCase("toggle")) {
