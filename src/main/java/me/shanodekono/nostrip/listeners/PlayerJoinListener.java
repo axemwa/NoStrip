@@ -39,7 +39,7 @@ public class PlayerJoinListener implements Listener {
                         astatus = "&coff";
                         event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                                 .replace("{status}", status
-                                        .replace("{astatus}", astatus))));
+                                .replace("{astatus}", astatus))));
                     }
                 }
             }, 20L);
@@ -58,7 +58,7 @@ public class PlayerJoinListener implements Listener {
                         astatus = "&aon";
                         event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
                                 .replace("{status}", status
-                                        .replace("{astatus}", astatus))));
+                                .replace("{astatus}", astatus))));
                     }
                 }
             }, 20L);
