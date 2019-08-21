@@ -1,18 +1,20 @@
-# -----------------[NoStrip]-------------------
-# -------------[Toggle Message]--------------------------------------------------------------------
-# Available Toggle message placeholders for toggle status
-# {status} = on | off
-# {astatus} = enabled | disabled
-# {permission} = Permission required to toggle on/off (ONLY APPLIES TO THE "no-permission" MESSAGE)
+# ----------------[NoStrip]--------------------
+# -------------[Placeholders]-----------------------------------------------------------------------
+# {status} = on | off - (ONLY APPLIES TO "toggle-message")
+# {astatus} = enabled | disabled - (ONLY APPLIES TO "toggle-message")
+# {permission} = Permission required for each "no-permission" message
+# -------Eg: (nostrip.axe.*, nostrip.toggle, nostrip.reload)-------
+# {apermission} = nostrip.axe.(type) - (ONLY APPLIES TO "no-axe-permission")
 # --------------------------------------------------------------------------------------------------
+# -----------[Join Notification]--------------------------------------------------------------------
 # Whether or not players should be notified of their toggle status when they join
 # notify-on-join: true/false
 # --------------------------------------------------------------------------------------------------
-# -------------[Help/command Menu]------------------------------------------------------------------
+# -----------[Help/command Menu]--------------------------------------------------------------------
 # Whether or not players can see the NoStrip menu/commands in chat with the /nostrip command.
 # allow-help-menu: true/false
 # --------------------------------------------------------------------------------------------------
-# -------------[Toggle Default]---------------------------------------------------------------------
+# ------------[Toggle Default]---------------------------------------------------------------------
 # Whether players will have stripping toggled on when joining.
 # toggle-default-on: true/false
 # If set to false and they don't have the 'nostrip.toggle' permission
@@ -28,8 +30,8 @@ messages:
   prefix: '&8&l[&c&l⦸ &4&lNo&c&lStrip &c&l⦸&8&l]'
   unknown-command: '&cUnknown Command'
   must-be-player: '&cYou Must Be A Player To Use This Command!'
-  no-permission: '&cYou do not have permission to use that command'
-  no-toggle-permission: '&cPermission {permission} Required! Contact server admin!'
-  no-axe-permission: '&cAxe Is Denied! Permission Required!'
+  no-reload-permission: '&cAdmins Only! Permission {permission} required'
+  no-toggle-permission: '&cN/A {permission} required'
+  no-axe-permission: '&cAxe Is Denied! {permission} required'
   toggle-message: '&2Log Stripping {status}'
-  config-reloaded: '&2Config Reloaded!'
+  config-reloaded: '&2Config Reloaded.'
