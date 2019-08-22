@@ -73,26 +73,18 @@ public class NoStripCommand implements CommandExecutor {
                 return true;
             }
 
-            String status;
-            String astatus;
             // If player isn't in toggle list which prevents stripping, add them
             if (!cfgUtils.toggle.contains(player.getUniqueId())) {
                 cfgUtils.toggle.add(player.getUniqueId());
-                status = "&cdisabled";
-                astatus = "&coff";
                 player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                        .replace("{status}", status)
-                        .replace("{astatus}", astatus)));
+                        .replace("{toggle}", cfgUtils.disabled)));
                 return true;
             }
             // Player removed from toggle means to allow stripping
             if (cfgUtils.toggle.contains(player.getUniqueId())) {
                 cfgUtils.toggle.remove(player.getUniqueId());
-                status = "&aenabled";
-                astatus = "&aon";
                 player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                        .replace("{status}", status)
-                        .replace("{astatus}", astatus)));
+                        .replace("{toggle}", cfgUtils.enabled)));
                 return true;
             }
         }

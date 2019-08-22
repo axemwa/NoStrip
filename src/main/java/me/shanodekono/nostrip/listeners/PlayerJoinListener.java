@@ -32,14 +32,9 @@ public class PlayerJoinListener implements Listener {
             BukkitScheduler scheduler = getServer().getScheduler();
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
-                    String status;
-                    String astatus;
                     if (cfgUtils.notifyOnJoin) {
-                        status = "&cdisabled";
-                        astatus = "&coff";
                         event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                                .replace("{status}", status
-                                .replace("{astatus}", astatus))));
+                                .replace("{toggle}", cfgUtils.disabled)));
                     }
                 }
             }, 20L);
@@ -51,14 +46,9 @@ public class PlayerJoinListener implements Listener {
             BukkitScheduler scheduler = getServer().getScheduler();
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
-                    String status;
-                    String astatus;
                     if (cfgUtils.notifyOnJoin) {
-                        status = "&aenabled";
-                        astatus = "&aon";
                         event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                                .replace("{status}", status
-                                .replace("{astatus}", astatus))));
+                                .replace("{toggle}", cfgUtils.enabled)));
                     }
                 }
             }, 20L);

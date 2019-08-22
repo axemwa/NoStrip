@@ -31,6 +31,8 @@ public class ConfigUtils {
     public String noTogglePermission;
     public String noAxePermission;
     public String toggleMessage;
+    public String enabled;
+    public String disabled;
 
     private String configReloaded;
 
@@ -52,6 +54,11 @@ public class ConfigUtils {
         noAxePermission = messages.getString("no-axe-permission");
         toggleMessage = messages.getString("toggle-message");
         configReloaded = messages.getString("config-reloaded");
+
+        ConfigurationSection toggleplaceholders = config.getConfigurationSection("toggle-placeholders");
+
+        enabled = toggleplaceholders.getString("enabled");
+        disabled = toggleplaceholders.getString("disabled");
 
         plugin.saveConfig();
     }

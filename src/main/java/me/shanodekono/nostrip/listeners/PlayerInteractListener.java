@@ -84,28 +84,20 @@ public class PlayerInteractListener implements Listener {
             if (event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType())))
                 return;
             String permission;
-            String apermission;
             if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType())))) {
-                permission = "&cnostrip.axe.*";
-                apermission = "&cnostrip.axe.(type)";
+                permission = (axePermissions.get(event.getItem().getType()));
                 event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission
-                        .replace("{permission}", permission
-                        .replace("{apermission}", apermission))));
+                        .replace("{permission}", permission)));
             }
 
             // Otherwise, Move On And Prevent Stripping The Log
         }
-        String status;
-        String astatus;
         String permission;
         if (cfgUtils.toggle.contains(event.getPlayer().getUniqueId())
                 && !event.getPlayer().hasPermission("nostrip.toggle")) {
-            status = "&cdisabled";
-            astatus = "&coff";
             permission = "&cnostrip.toggle";
             event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
-                    .replace("{status}", status
-                    .replace("{astatus}", astatus))));
+                    .replace("{toggle}", cfgUtils.disabled)));
             event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.noTogglePermission
                     .replace("{permission}", permission)));
         }
