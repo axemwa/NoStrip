@@ -41,7 +41,7 @@ public class NoStripCommand implements CommandExecutor {
                 return true;
             }
 
-            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
+            sender.sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.unknownCommand));
             return true;
         }
 
@@ -52,7 +52,7 @@ public class NoStripCommand implements CommandExecutor {
             String permission;
             if (!sender.hasPermission("nostrip.reload")) {
                 permission = "&cnostrip.reload";
-                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noReloadPermission
+                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.noReloadPermission
                         .replace("{permission}", permission)));
             }
             return true;
@@ -60,7 +60,7 @@ public class NoStripCommand implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("toggle")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.mustBePlayer));
+                sender.sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.mustBePlayer));
                 return true;
             }
 
@@ -68,7 +68,7 @@ public class NoStripCommand implements CommandExecutor {
             String permission;
             if (!player.hasPermission("nostrip.toggle")) {
                 permission = "&cnostrip.toggle";
-                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noTogglePermission
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.noTogglePermission
                         .replace("{permission}", permission)));
                 return true;
             }
@@ -76,19 +76,19 @@ public class NoStripCommand implements CommandExecutor {
             // If player isn't in toggle list which prevents stripping, add them
             if (!cfgUtils.toggle.contains(player.getUniqueId())) {
                 cfgUtils.toggle.add(player.getUniqueId());
-                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.toggleMessage
                         .replace("{toggle}", cfgUtils.disabled)));
                 return true;
             }
             // Player removed from toggle means to allow stripping
             if (cfgUtils.toggle.contains(player.getUniqueId())) {
                 cfgUtils.toggle.remove(player.getUniqueId());
-                player.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                player.sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.toggleMessage
                         .replace("{toggle}", cfgUtils.enabled)));
                 return true;
             }
         }
-        sender.sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
+        sender.sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.unknownCommand));
         return true;
     }
 

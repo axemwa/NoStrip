@@ -33,7 +33,7 @@ public class PlayerJoinListener implements Listener {
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
                     if (cfgUtils.notifyOnJoin) {
-                        event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                        event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.toggleMessage
                                 .replace("{toggle}", cfgUtils.disabled)));
                     }
                 }
@@ -47,7 +47,7 @@ public class PlayerJoinListener implements Listener {
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
                     if (cfgUtils.notifyOnJoin) {
-                        event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+                        event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.toggleMessage
                                 .replace("{toggle}", cfgUtils.enabled)));
                     }
                 }

@@ -84,8 +84,8 @@ public class PlayerInteractListener implements Listener {
             if (event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType())))
                 return;
 
-            if (!event.getPlayer().hasPermission((axePermissions.get(event.getItem().getType())))) {
-                event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.noAxePermission
+            if (!event.getPlayer().hasPermission(axePermissions.get(event.getItem().getType()))) {
+                event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.noAxePermission
                         .replace("{permission}", (axePermissions.get(event.getItem().getType())))));
             }
 
@@ -95,7 +95,7 @@ public class PlayerInteractListener implements Listener {
         if (cfgUtils.toggle.contains(event.getPlayer().getUniqueId())
                 && !event.getPlayer().hasPermission("nostrip.toggle")) {
             permission = "&cnostrip.toggle";
-            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + " " + cfgUtils.toggleMessage
+            event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.prefix + cfgUtils.toggleMessage
                     .replace("{toggle}", cfgUtils.disabled)));
             event.getPlayer().sendMessage(cfgUtils.color(cfgUtils.noTogglePermission
                     .replace("{permission}", permission)));
