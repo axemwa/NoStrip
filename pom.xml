@@ -6,7 +6,7 @@
 
     <groupId>me.shanodekono.nostrip</groupId>
     <artifactId>NoStrip</artifactId>
-    <version>2.2</version>
+    <version>2.3</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -30,7 +30,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>me.shanodekono</shadedPattern>
+                            <shadedPattern>me.shanodekono.nostrip</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
