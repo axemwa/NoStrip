@@ -28,7 +28,7 @@ public class PlayerJoinListener implements Listener {
         if (!cfgUtils.toggleDefaultOn && !cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
             cfgUtils.toggle.add(event.getPlayer().getUniqueId());
         }
-        if (cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
+        if (cfgUtils.toggle.contains(event.getPlayer().getUniqueId()) && (!cfgUtils.toggleDefaultOn)) {
             BukkitScheduler scheduler = getServer().getScheduler();
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
@@ -42,7 +42,7 @@ public class PlayerJoinListener implements Listener {
         if (cfgUtils.toggleDefaultOn && cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
             cfgUtils.toggle.remove(event.getPlayer().getUniqueId());
         }
-        if (!cfgUtils.toggle.contains(event.getPlayer().getUniqueId())) {
+        if (!cfgUtils.toggle.contains(event.getPlayer().getUniqueId()) && (cfgUtils.toggleDefaultOn)) {
             BukkitScheduler scheduler = getServer().getScheduler();
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
