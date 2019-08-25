@@ -32,7 +32,7 @@ toggle-default-on: false
 notify-on-join: true
 
 messages:
-  prefix: '&8&l[&c&l⦸ &4&lNo&c&lStrip &c&l⦸&8&l]'
+  prefix: '&8&l[&c&l⦸ &4&lNo&c&lStrip &c&l⦸&8&l] '
   unknown-command: '&cUnknown Command'
   must-be-player: '&cYou Must Be A Player To Use This Command!'
   no-reload-permission: '&cAdmins Only! Permission {permission} required'
